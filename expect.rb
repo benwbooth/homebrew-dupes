@@ -18,7 +18,7 @@ class Expect < Formula
     args << "--with-tcl=#{Formula.factory('tcl-tk').opt_prefix}/lib" if build.with? 'brewed-tk'
 
     system "./configure", *args
-    system "make"
+    system "make","CFLAGS=-I/System/Library/Frameworks/Tcl.framework/Versions/Current/Headers/tcl-private"
     system "make install"
   end
 
